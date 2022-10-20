@@ -1,0 +1,118 @@
+<!-- Complete the following assignment as a team. Designate one team member as the "main driver" and collaborate on their copy of the code. Everyone on the team should be actively engaged in writing the code and contributing to the solution. Once the solution is working, make sure that everyone on the team gets a copy of the code. Each week let someone else be the "main driver" of the coding.
+
+Core Requirements
+ Build a 3X3 board in HTML and CSS.
+You could do this with either a table element, or a collection of divs. Both have their advantages and disadvantages.
+
+ Attach a touchend listener to the board.
+When a cell is touched it should add either an 'X or an 'O', depending on whether it is player 1 or player 2's turn.
+
+ Add a reset button.
+When touched the reset button should remove all of the marks from the board.
+
+Stretch Goals
+ If your board looks like the first image below...make it look like the second.
+Borders all around the outside, incorrect
+Incorrect borders
+Onlt borders on the inside, correct
+Correct borders
+Hint: look into :nth-child(n), :last-child, etc for help to target specific cells to turn borders on or off.
+
+ Add Game logic
+Right now the players have to decide who won, or whether it was a tie. Add some game logic to figure out when the game should result in a tie.
+
+ Add More Game logic
+Add the logic to figure out when someone wins. -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <style>
+      /* styles for the table based board */
+      .board {
+        width: 320px;
+        height: 320px;
+      }
+      .board td,
+      .board tr {
+        width: 33.3%;
+        height: 33.3%;
+      }
+      .board td {
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        font-size: 5em;
+        text-align: center;
+      }
+
+      .board td:last-child {
+        border-right: 0;
+      }
+
+      .board tr:last-child td {
+        border-bottom: 0;
+      }
+
+      /* Styles for the div based board */
+      .divBoard {
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+        justify-content: center;
+      }
+      .divBoard > div {
+        /* border-right: 1px solid;
+        border-bottom: 1px solid; */
+        border: 1px solid;
+        font-size: 5em;
+        text-align: center;
+      }
+      /* .divBoard > div:nth-child(3n) {
+        border-right: 0;
+      }
+      .divBoard > div:nth-child(n + 7) {
+        border-bottom: 0;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- Here is a board built with a table element. It goes together quickly, and need minimal styling...but it will be a bit more work to get at it's children-->
+    <table class="board">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <!-- Here is a board built with simple div elements. The markup is simpler, but it will require more styling to get it to look like a tic tac toe board. All of the cells are direct children of the board, so they will be easy to get a hold of.-->
+    <div class="divBoard">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <button id="reset">Reset</button>
+
+    <script>
+
+    </script>
+  </body>
+</html>

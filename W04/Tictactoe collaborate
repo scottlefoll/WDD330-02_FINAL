@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .game {
+            width: 600px;
+            height: 600px;
+        }
+        .game td,
+        .game tr {
+            width: 33.3%;
+            height: 33.3%;
+        }
+        .game td {
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            text-align: center;
+            font-size: 5em;
+        }
+
+        .game td:last-child {
+             border-right: 0;
+        }
+
+       .game tr:last-child td {
+            border-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <table class="game">
+       
+        <tr>
+            <td id="1"></td>
+            <td id="2"></td>
+            <td id="3"></td>
+        </tr>
+        <tr>
+            <td id="4"></td>
+            <td id="5"></td>
+            <td id="6"></td>
+        </tr>
+        <tr>
+            <td id="7"></td>
+            <td id="8"></td>
+            <td id="9"></td>
+        </tr>
+    </table>
+    
+    <button id="reset">Reset</button>
+    <script>
+        const board = document.querySelector('.game');
+        const resetbutton = document.getElementById('reset');
+        const player1 = 'X';
+        const player2 = 'O';
+        let moves = [0,0,0,0,0,0,0,0,0];
+        let currentPlayer = player1;
+
+        function addPiece(event) {
+            console.log(event.target);
+            event.target.innerHTML = currentPlayer;
+            moves[event.target.id] = currentPlayer;
+            for i in [1,4,7] {
+                if moves[i] == currentPlayer && moves[i+1] == currentPlayer && moves[i+2] == currentPlayer {
+                    alert(currentPlayer + " wins!");
+                }
+            }
+            for i from (1,9) [1,4,5] or [2,5,8] or [3,6,9] or [1,5,9] or [3,5,7] or [1,2,3] or [4,5,6] or [7,8,9] {
+                if moves[i] == currentPlayer && moves[i+1] == currentPlayer && moves[i+6] == currentPlayer {
+                    alert(currentPlayer + " wins!");
+                }       
+        
+
+        function resetBoard() {
+            console.dir(board);
+            for (let i = 0; i < board.rows.length; i++) {
+                let row = board.rows[i];
+                for (let j = 0; j < row.cells.length; j++) {
+                    row.cells[j].innerHTML = '';
+                }
+        }
+      }
+
+      board.addEventListener('click', addPiece);
+      
+      reset.addEventListener('click', resetBoard);
+    </script>
+
+</body>
+</html>

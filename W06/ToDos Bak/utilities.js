@@ -1,5 +1,5 @@
 // This function is called when the user clicks on a To Do item, and it toggles the checked status
-const list = document.querySelector('.js-main-list');
+const list = document.querySelector('.js-todo-list');
 let button = document.querySelector("button");
 // add an event listener to the list
 list.addEventListener('click', event => {

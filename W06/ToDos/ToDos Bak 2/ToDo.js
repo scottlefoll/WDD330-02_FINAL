@@ -5,7 +5,7 @@ function renderTodo(todo) {
     // save the ToDo items to local storage
     // localStorage.setItem('todoItems', JSON.stringify(todoItems));
     writeToLS('todoItems', todoItems);
-    const list = document.querySelector('.js-todo-list');
+    const list = document.querySelector('.js-main-list');
     const item = document.querySelector(`[data-key='${todo.id}']`);
 
     if (todo.deleted) {
@@ -83,7 +83,7 @@ function deleteTodo(key) {
 
 
 // select the form and add an event listener
-const form = document.querySelector('.js-form');
+const form = document.querySelector('.js-add-form');
 form.addEventListener('submit', event => {
     // stop the browser from reloading the page
     event.preventDefault();
@@ -105,7 +105,7 @@ form.addEventListener('submit', event => {
 // function to filter the ToDo items to display 'all', 'active', or 'completed' items
 function filterTodos( filter ) {
 
-    const list = document.querySelector('.js-todo-list');    // 
+    const list = document.querySelector('.js-main-list');    // 
     const items = list.querySelectorAll('.todo-item');
     const tasks_left = 0
     // for each item, display it if it matches the filter

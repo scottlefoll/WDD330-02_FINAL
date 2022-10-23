@@ -1,37 +1,37 @@
 // This function is called when the user clicks on a To Do item, and it toggles the checked status
-const list = document.querySelector('.js-todo-list');
+const list = document.querySelector('.js-main-list');
 let button = document.querySelector("button");
 // add an event listener to the list
 list.addEventListener('click', event => {
-  alert('You clicked on something');
+  // alert('You clicked on something');
     // if the user clicks on a To Do item, then toggle its 'checked' status
     // alert("You clicked on a ToDo item");
     if (event.target.classList.contains('js-tick')) {
         const itemKey = event.target.parentElement.dataset.key;
         toggleDone(itemKey);
-        alert('Marked as done');
+        // alert('Marked as done');
     }
     if (event.target.classList.contains('js-delete-todo')) {
         const itemKey = event.target.parentElement.dataset.key;
         deleteTodo(itemKey);
-        alert('Deleted');
+        // alert('Deleted');
     }
 
     if (event.target.classList.contains('js-filter-all')) {
         filterTodos('all');
-        alert('Filter All');
+        // alert('Filter All');
     }
 
     if (event.target.classList.contains('js-filter-active')) {
       alert("You clicked on the active filter");
       filterTodos('active');
-      alert('Filter Active');
+      // alert('Filter Active');
     }
   
     if (event.target.classList.contains('js-filter-completed')) {
       alert("You clicked on the completed filter");
       filterTodos('completed');
-      alert('Filter Completed');
+      // alert('Filter Completed');
     }
 
 });

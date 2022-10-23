@@ -28,7 +28,7 @@ html {
     overflow-y: auto;
   }
   
-  .main-title {
+  .app-title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 80px;
@@ -48,7 +48,7 @@ html {
     align-items: center;
   }
   
-  .main-list {
+  .todo-list {
     list-style: none;
     margin-bottom: 20px;
   }
@@ -125,7 +125,7 @@ html {
   
   /* Add this below all the other styles */
   
-  .no-tasks {
+  .empty-state {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -136,7 +136,7 @@ html {
     margin-bottom: 20px;
   }
   
-  .title-no-tasks, .description-no-tasks {
+  .empty-state__title, .empty-state__description {
     margin-bottom: 20px;
   }
   
@@ -145,6 +145,6 @@ html {
     display: none;
   }
   
-  .todo-list:empty + .no-tasks {
+  .todo-list:empty + .empty-state {
     display: flex;
   }

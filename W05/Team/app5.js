@@ -1,7 +1,7 @@
-import Hikes from "hikes.js";
+import Hikes from "hiking-partial-solution.js";
 //on load grab the array and insert it into the page
-const myHikes = new Hikes("hikes");
+const myHike = new Hikes("hikeListId");
 window.addEventListener("load", () => {
-  myHikes.showHikeList();
+  myHike.showHikeList();
 });
-myHikes.hikeList;
+// myHike.hikeList;

@@ -11,8 +11,10 @@
   <body>
     <main>
       <div class="todo-box">
-        <h1 class="app-title">Todos</h1>
-        <ul class="todo-list js-todo-list"></ul>
+        <h1 class="main-title">Todos</h1>
+        <ul class="main-list js-main-list"></ul>
+
+
         <div class="empty-state">
           <svg class="checklist-icon"><use href="#checklist-icon"></use></svg>
           <h2 class="empty-state__title">Begin typing, then hit 'Enter" to add</h2>
@@ -20,6 +22,8 @@
             Make a list of your tasks and check them off as you complete them.
           </p>
         </div>
+
+
         <div class="todo-footer">
           <ul class="filters">
             <li style="display:inline">
@@ -39,7 +43,7 @@
             </li>
           </ul>
         </div>
-        <form class="js-form">
+        <form class="js-add-form">
           <input
             autofocus
             type="text"

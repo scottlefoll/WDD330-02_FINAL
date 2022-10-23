@@ -71,7 +71,7 @@
     </table>
 
     <!-- Here is a board built with simple div elements. The markup is simpler, but it will require more styling to get it to look like a tic tac toe board. All of the cells are direct children of the board, so they will be easy to get a hold of.-->
-    <div class="divBoard">
+    <!-- <div class="divBoard">
       <div></div>
       <div></div>
       <div></div>
@@ -81,7 +81,7 @@
       <div></div>
       <div></div>
       <div></div>
-    </div>
+    </div> -->
     <button id="reset">Reset</button>
 
     <script>
@@ -125,17 +125,3 @@
     </script>
   </body>
 </html>
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

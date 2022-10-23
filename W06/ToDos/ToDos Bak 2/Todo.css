@@ -28,7 +28,7 @@ html {
     overflow-y: auto;
   }
   
-  .app-title {
+  .main-title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 80px;
@@ -48,7 +48,7 @@ html {
     align-items: center;
   }
   
-  .todo-list {
+  .main-list {
     list-style: none;
     margin-bottom: 20px;
   }
@@ -140,7 +140,7 @@ html {
     margin-bottom: 20px;
   }
   
-  /* Add this below the other styles */
+
   .todo-list:empty {
     display: none;
   }

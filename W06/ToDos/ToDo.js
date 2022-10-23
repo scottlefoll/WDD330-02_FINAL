@@ -5,7 +5,7 @@ function renderTodo(todo) {
     // save the ToDo items to local storage
     // localStorage.setItem('todoItems', JSON.stringify(todoItems));
     writeToLS('todoItems', todoItems);
-    const list = document.querySelector('.js-main-list');
+    const list = document.querySelector('.js-todo-list');
     const item = document.querySelector(`[data-key='${todo.id}']`);
 
     if (todo.deleted) {
@@ -46,22 +46,28 @@ function renderTodo(todo) {
 // hits the enter key.  It creates a new ToDo item, and adds it to the todoItems array.
 // ?? It then calls the renderTodo function to display the new ToDo item.
 function addTodo(text) {
+    let activeToDo = 0
     const todo = {
         id: Date.now(),
         text,
         checked: false,
     };
     todoItems.push(todo);
-    // console.log(todoItems);
+    activeToDo = todoItems.filter(t => t.checked === false).length;
+    document.getElementById('js-tasks-left').innerHTML = activeToDo;
     renderTodo(todo);
 }
 
 // This function is called when the user clicks on a To Do item, and it toggles the checked
 function toggleDone(key) {
     // find the index of the item in the array
+    let activeToDo = 0
     const index = todoItems.findIndex(item => item.id === Number(key));
     // toggle the checked value of the item
     todoItems[index].checked = !todoItems[index].checked;
+    // get the number of active ToDo item from local storage
+    activeToDo = todoItems.filter(t => t.checked === false).length;
+    document.getElementById('js-tasks-left').innerHTML = activeToDo;
     // display the updated ToDo list
     renderTodo(todoItems[index]);
 }
@@ -69,6 +75,7 @@ function toggleDone(key) {
 // This function is called when the user clicks on the delete button for a ToDo item
 function deleteTodo(key) {
     // find the index of the item in the array
+    let activeToDo = 0
     const index = todoItems.findIndex(item => item.id === Number(key));
     // create a new object with the deleted property set to true
     const todo = {
@@ -77,13 +84,16 @@ function deleteTodo(key) {
     }
     // replace the item in the array with the new object
     todoItems = todoItems.filter(item => item.id !== Number(key));
+    // get the number of active ToDo item from local storage
+    activeToDo = todoItems.filter(t => t.checked === false).length;
+    document.getElementById('js-tasks-left').innerHTML = activeToDo;
     // display the updated ToDo list
     renderTodo(todo);
 }
 
 
 // select the form and add an event listener
-const form = document.querySelector('.js-add-form');
+const form = document.querySelector('.js-form');
 form.addEventListener('submit', event => {
     // stop the browser from reloading the page
     event.preventDefault();
@@ -101,23 +111,24 @@ form.addEventListener('submit', event => {
 });
 
 
+// function filterTodos(filter) {
+//     alert("You clicked filter - " + filter);
+// }
 
 // function to filter the ToDo items to display 'all', 'active', or 'completed' items
 function filterTodos( filter ) {
-
-    const list = document.querySelector('.js-main-list');    // 
+    // alert("Entering filterTodos");
+    const list = document.querySelector('.js-todo-list');    // 
     const items = list.querySelectorAll('.todo-item');
-    const tasks_left = 0
     // for each item, display it if it matches the filter
     items.forEach(item => {
-        if (item.checked = false) {
-            tasks_left += 1;
-        }
         switch (filter) {
             case 'all':
+                // alert("Case filter - all");
                 item.style.display = 'flex';
                 break;
             case 'active':
+                // alert("Case filter - active");
                 if (item.classList.contains('done')) {
                     item.style.display = 'none';
                 } else {
@@ -125,6 +136,7 @@ function filterTodos( filter ) {
                 }
                 break;
             case 'completed':
+                // alert("Case filter - completed");
                 if (item.classList.contains('done')) {
                     item.style.display = 'flex';
                 } else {
@@ -133,7 +145,4 @@ function filterTodos( filter ) {
                 break;
         }
     });
-    // update the number of tasks left
-    document.querySelector('.js-tasks-left').textContent = num.toString(tasks_left);
-    // document.getElementById('tasks-left').innerText = tasks_left;
 }

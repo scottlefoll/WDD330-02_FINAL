@@ -11,12 +11,12 @@
   <body>
     <main>
       <div class="todo-box">
-        <h1 class="main-title">Todos</h1>
-        <ul class="main-list js-main-list"></ul>
-        <div class="no-tasks">
-          <svg class="checklist-icon"><use href="#checklist-icon"></use></svg>
-          <h2 class="title-no-tasks">Begin typing, then hit 'Enter" to add</h2>
-          <p class="description-no-tasks">
+        <h1 class="app-title">Todos</h1>
+        <ul class="todo-list js-todo-list"></ul>
+        <div class="empty-state">
+          <div class="checklist-icon"></use></div>
+          <h2 class="empty-state__title">Begin typing, then hit 'Enter" to add</h2>
+          <p class="empty-state__description">
             Make a list of your tasks and check them off as you complete them.
           </p>
         </div>
@@ -29,17 +29,17 @@
               </span>    
             </li>
             <li style="display:inline">
-              <a href="#" id="js-filter-all" class="js-filter">All</a>
+              <a href="#filter-all" id="js-filter-all" class="js-filter-all" onclick="filterToDos('all')">All</a>
             </li>
             <li style="display:inline">
-              <a href="#" id="js-filter-active" class="js-filter-active">Active</a>
+              <a href="#filter-active" id="js-filter-active" class="js-filter-active" onclick="filterToDos('active')">Active</a>
             </li>
             <li style="display:inline">
-              <a href="#" id="js-filter-completed" class="js-filter-completed">Completed</a>
+              <a href="#filter-completed" id="js-filter-completed" class="js-filter-completed" onclick="filterToDos('completed')">Completed</a>
             </li>
           </ul>
         </div>
-        <form class="js-add-form">
+        <form class="js-form">
           <input
             autofocus
             type="text"
